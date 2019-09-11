@@ -125,4 +125,4 @@ await tx.wait(); // wait for mining
 
 Note that Web3.js will return a [PromiEvent](https://web3js.readthedocs.io/en/v1.2.1/callbacks-promises-events.html?highlight=promievent#callbacks-promises-events) which allows you to subscribe to confirmations, errors, and the transaction hash.
 
-Ethers.js will return a transaction object where a bunch of information relating to the transaction is kept. You can grab the hash via `tx.hash`, but you must `await` on `tx.wait()` if you want to make sure it has been mined.
+Ethers.js will return a transaction object where a bunch of information relating to the transaction is kept. You can grab the hash via `tx.hash`, but you must `await` on `tx.wait()` if you want to make sure it has been mined. The method `tx.wait` can also be used to subscribe for confirmations by passing a number of blocks to it, for e.g. `tx.wait(10)`. This will return a promise which will resolve when required block confirmations is done.
